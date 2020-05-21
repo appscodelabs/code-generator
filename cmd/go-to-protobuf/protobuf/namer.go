@@ -37,7 +37,15 @@ func (n localNamer) Name(t *types.Type) string {
 	if len(n.localPackage.Package) != 0 && n.localPackage.Package == t.Name.Package {
 		return t.Name.Name
 	}
-	return t.Name.String()
+	out := t.Name.String()
+	if len(t.Name.Path) > 0 && len(n.localPackage.Path) > 0 {
+		tparts := strings.Split(t.Name.Path, "/")
+		lparts := strings.Split(n.localPackage.Path, "/")
+		if tparts[0] == lparts[0] {
+			out = "." + out
+		}
+	}
+	return out
 }
 
 type protobufNamer struct {
