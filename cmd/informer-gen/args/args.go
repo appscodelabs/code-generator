@@ -33,7 +33,7 @@ type CustomArgs struct {
 	SingleDirectory           bool
 
 	// PluralExceptions define a list of pluralizer exceptions in Type:PluralType format.
-	// The default list is "Endpoints:Endpoints"
+	// The default list is "Endpoints:Endpoints", "SecurityContextConstraints:SecurityContextConstraints"
 	PluralExceptions []string
 }
 
@@ -42,7 +42,7 @@ func NewDefaults() (*args.GeneratorArgs, *CustomArgs) {
 	genericArgs := args.Default().WithoutDefaultFlagParsing()
 	customArgs := &CustomArgs{
 		SingleDirectory:  false,
-		PluralExceptions: []string{"Endpoints:Endpoints"},
+		PluralExceptions: []string{"Endpoints:Endpoints", "SecurityContextConstraints:SecurityContextConstraints"},
 	}
 	genericArgs.CustomArgs = customArgs
 
