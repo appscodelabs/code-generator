@@ -80,7 +80,7 @@ fi
   )
   # Compile all the tools at once - it's slightly faster but also just simpler.
   # shellcheck disable=2046 # printf word-splitting is intentional
-  GO111MODULE=on go install $(printf "k8s.io/code-generator/cmd/%s " "${BINS[@]}")
+  # GO111MODULE=on go install $(printf "k8s.io/code-generator/cmd/%s " "${BINS[@]}")
 )
 
 # Go installs the above commands to get installed in $GOBIN if defined, and $GOPATH/bin otherwise:
